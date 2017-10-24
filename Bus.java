@@ -24,8 +24,8 @@ public class Bus {
 
   public void add(Person person){
     if(!isBusFull()){
-      int passengerCount = passengerCount();
-      this.passengers[passengerCount] = person;
+      int index = passengerCount();
+      this.passengers[index] = person;
     }
   }
 
@@ -39,11 +39,12 @@ public class Bus {
     }
   }
 
-  public void pickUp(Person person){
-    for(Person person : this.busstop.queue){
-    add(Person person);
+
+  public void remove(){
+    if(passengerCount() > 0){
+      int index = passengerCount();
+      passengers[index-1] = null;
     }
-    this.busstop.empty();
   }
 
 

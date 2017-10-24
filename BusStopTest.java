@@ -44,5 +44,13 @@ public void busStopEmpty() {
   assertEquals(0, busstop.queueCount());
 }
 
+@Test
+public void canAddToBusFromQueue(){
+  busstop.add(person);
+  Person passenger = busstop.remove();
+  bus.add(passenger);
+  assertEquals(0, busstop.queueCount());
+  assertEquals(1, bus.passengerCount());
+}
 
 }
